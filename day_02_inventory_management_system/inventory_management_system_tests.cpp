@@ -2,6 +2,9 @@
 
 #include <catch2/catch.hpp>
 
+#include <vector>
+#include <string>
+
 TEST_CASE("Count repeated characters")
 {
 	std::string test_case;
@@ -44,4 +47,38 @@ TEST_CASE("Count mismatches")
 TEST_CASE("Common characters")
 {
 	REQUIRE(common_characters("fghij", "fguij") == "fgij");
+}
+
+TEST_CASE("Mismatches of given size")
+{
+	std::vector<std::string> test_data =
+	{
+		"abcde",
+		"fghij",
+		"klmno",
+		"pqrst",
+		"fguij",
+		"axcye",
+		"wvxyz",
+	};
+
+	SECTION("Strings with two characters difference")
+	{
+		const std::set<std::pair<std::string, std::string>> expected =
+		{
+			{ "abcde", "axcye" },
+		};
+
+		REQUIRE(strings_with_mismatches(test_data, 2) == expected);
+	}
+
+	SECTION("Strings with one character difference")
+	{
+		const std::set<std::pair<std::string, std::string>> expected =
+		{
+			{ "fghij", "fguij" },
+		};
+
+		REQUIRE(strings_with_mismatches(test_data, 1) == expected);
+	}
 }

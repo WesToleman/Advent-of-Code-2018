@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <map>
 #include <numeric>
+#include <set>
 #include <string>
 #include <type_traits>
 #include <vector>
@@ -135,4 +136,38 @@ std::string common_characters(std::string left, const std::string& right)
 	}));
 
 	return left;
+}
+
+/**
+ * @brief      Find all pairs of strings with a given number of differing
+ *             characters
+ *
+ * @param[in]  strings          The strings
+ * @param[in]  n                The number of mismatches between the two strings
+ *
+ * @tparam     StringContainer  A container type containing `std::string`s
+ *
+ * @return     A set of pairs of strings with a given amount of difference
+ */
+template <class StringContainer>
+std::set<std::pair<std::string, std::string>> strings_with_mismatches(const StringContainer& strings, unsigned n)
+{
+	using value_type = typename StringContainer::value_type;
+	static_assert(std::is_same<std::string, value_type>::value,
+	              "String Container must hold `std::string`");
+
+	std::set<std::pair<std::string, std::string>> results;
+
+	for (auto itr = strings.begin(), end = strings.end(); itr != end; ++itr)
+	{
+		for (auto jtr = itr + 1; jtr != end; ++jtr)
+		{
+			if (count_mismatches(*itr, *jtr) == n)
+			{
+				results.emplace(*itr, *jtr);
+			}
+		}
+	}
+
+	return results;
 }
