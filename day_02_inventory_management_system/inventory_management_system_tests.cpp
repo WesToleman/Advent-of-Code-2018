@@ -34,3 +34,9 @@ TEST_CASE("Count repeated characters")
 	REQUIRE_FALSE(contains_n_repeats(test_case, 2));
 	REQUIRE(contains_n_repeats(test_case, 3));
 }
+
+TEST_CASE("Count mismatches")
+{
+	REQUIRE(count_mismatches("abcde", "axcye") == 2);
+	REQUIRE(count_mismatches("fghij", "fguij") == 1);
+}

@@ -95,3 +95,25 @@ unsigned checksum(const StringContainer& box_ids, const CountsContainer& counts)
 
 	return std::accumulate(totals.begin(), totals.end(), 1, std::multiplies<counts_type>());
 }
+
+/**
+ * @brief      Counts the number of differing characters between two strings
+ *
+ * @param[in]  left   The first string to compare
+ * @param[in]  right  The second string to compare
+ *
+ * @return     Number of mismatches between the two strings
+ */
+unsigned count_mismatches(const std::string& left, const std::string& right)
+{
+	unsigned count = 0;
+	auto itr = std::mismatch(left.begin(), left.end(), right.begin());
+
+	while(itr.first != left.end())
+	{
+		++count;
+		itr = std::mismatch(++itr.first, left.end(), ++itr.second);
+	}
+
+	return count;
+}
