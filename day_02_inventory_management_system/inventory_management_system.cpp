@@ -14,5 +14,9 @@ int main()
 
 	std::cout << "Checksum: " << checksum(puzzle, counts) << '\n';
 
+	auto common_strings = *(strings_with_mismatches(puzzle, 1).begin());
+
+	std::cout << "Common Characters: " << common_characters(common_strings.first, common_strings.second) << '\n';
+
 	return 0;
 }
