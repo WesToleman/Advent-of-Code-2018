@@ -14,6 +14,11 @@ target_compile_features(ChronalCalibration PUBLIC cxx_std_17)
 target_link_libraries(ChronalCalibration AOCLib)
 target_include_directories(ChronalCalibration PUBLIC day_01_chronal_calibration)
 
+add_executable(InventoryManagementSystem
+	day_02_inventory_management_system/inventory_management_system.cpp)
+target_link_libraries(InventoryManagementSystem AOCLib)
+target_include_directories(InventoryManagementSystem PUBLIC day_02_inventory_management_system)
+
 # Unit Testing
 find_package(Catch2 REQUIRED)
 
