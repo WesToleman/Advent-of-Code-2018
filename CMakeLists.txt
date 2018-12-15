@@ -26,6 +26,10 @@ target_link_libraries(AOCLibTests AOCLib TestRunner)
 add_executable(ChronalCalibrationTests day_01_chronal_calibration/chronal_calibration_tests.cpp)
 target_link_libraries(ChronalCalibrationTests TestRunner)
 
+add_executable(InventoryManagementSystemTests day_02_inventory_management_system/inventory_management_system_tests.cpp)
+target_link_libraries(InventoryManagementSystemTests TestRunner)
+
 enable_testing()
 add_test(NAME AOCLibTests COMMAND AOCLibTests)
 add_test(NAME ChronalCalibrationTests COMMAND ChronalCalibrationTests)
+add_test(NAME InventoryManagementSystemTests COMMAND InventoryManagementSystemTests)
