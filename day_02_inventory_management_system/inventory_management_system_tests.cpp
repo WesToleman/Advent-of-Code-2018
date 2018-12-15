@@ -40,3 +40,8 @@ TEST_CASE("Count mismatches")
 	REQUIRE(count_mismatches("abcde", "axcye") == 2);
 	REQUIRE(count_mismatches("fghij", "fguij") == 1);
 }
+
+TEST_CASE("Common characters")
+{
+	REQUIRE(common_characters("fghij", "fguij") == "fgij");
+}

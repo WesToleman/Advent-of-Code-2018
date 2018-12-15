@@ -117,3 +117,22 @@ unsigned count_mismatches(const std::string& left, const std::string& right)
 
 	return count;
 }
+
+/**
+ * @brief      Get a string that is the intersection of two strings
+ *
+ * @param[in]  left   The first string
+ * @param[in]  right  The second string
+ *
+ * @return     A string consisting of the common characters between two strings
+ */
+std::string common_characters(std::string left, const std::string& right)
+{
+	auto itr = right.begin();
+	left.erase(std::remove_if(left.begin(), left.end(), [&](char c)
+	{
+		return c != *itr++;
+	}));
+
+	return left;
+}
