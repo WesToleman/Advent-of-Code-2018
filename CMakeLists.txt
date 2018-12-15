@@ -10,6 +10,7 @@ target_include_directories(AOCLib INTERFACE lib)
 
 add_executable(ChronalCalibration
 	day_01_chronal_calibration/chronal_calibration.cpp)
+target_compile_features(ChronalCalibration PUBLIC cxx_std_17)
 target_link_libraries(ChronalCalibration AOCLib)
 target_include_directories(ChronalCalibration PUBLIC day_01_chronal_calibration)
 

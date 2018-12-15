@@ -12,7 +12,8 @@ int main()
 	auto inserter = std::back_inserter(puzzle);
 	aoc::parse_nlv(inserter, std::cin);
 
-	std::cout << get_frequency(puzzle) << '\n';
+	std::cout << "Final frequency: " << get_frequency(puzzle) << '\n';
+	std::cout << "First repeated frequency: " << first_repeated_frequency(puzzle) << '\n';
 
 	return 0;
 }
